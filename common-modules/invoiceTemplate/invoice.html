@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samskara</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div class="pdfMainWrapper">
+        <div class="row">
+                            <!-- BEGIN INVOICE -->
+                            <div class="col-xs-12">
+                                <div class="grid invoice">
+                                    <div class="grid-body">
+                                        <div class="invoice-title">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <img src="https://christianroommates.net/assets/images/cr-logo.jpg" alt="" height="35">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h2><span class="small">#{{invoiceNo}}</span></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <address>
+                                                    <strong>Name: </strong> {{user}} <br>
+                                                    <strong>Email: </strong> {{email}}
+                                                </address>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <address>
+                                                    <strong>Payment Type: </strong> {{paymentType}} ({{paymentStatus}})<br>
+                                                </address>
+                                            </div>
+                                            <div class="col-xs-6 text-right">
+                                                <address>
+                                                    <strong>Order Date:</strong><br>
+                                                    {{createdAt}}
+                                                </address>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>ORDER SUMMARY</h3>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr class="line">
+                                                            <td><strong>#</strong></td>
+                                                            <td class="text-center"><strong>Service Name</strong></td>
+                                                            <td class="text-right"><strong>Price</strong></td>
+                                                            <td class="text-right"><strong>Addons Price</strong></td>
+                                                            <td class="text-right"><strong>Sub Total</strong></td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each products as |item index|}}
+                                                        <tr>
+                                                            <td>{{inc @index}} </td>
+                                                            <td>
+                                                                <div class="serviceWrp">
+                                                                    <h4>{{item.serviceId.name}} ({{item.packageId.name}})</h4>
+                                                                    <h6>
+                                                                        {{#each this.customAddons as |addons index|}}
+                                                                            {{addons.quantity}}x {{addons.addons.name}}
+                                                                        {{/each}}
+                                                                    </h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-right">₹{{item.packagePrice}}</td>
+                                                            <td class="text-right">₹{{item.addonsPrice}}</td>
+                                                            <td class="text-right">₹{{item.totalServicePrice}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                        <tr class="bordTps">
+                                                            <td colspan="3"></td>
+                                                            <td class="text-right"><strong>Sub Total</strong></td>
+                                                            <td class="text-right"><strong>₹{{subTotal}}</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3"></td>
+                                                            <td class="text-right"><strong>Coupon Discount</strong></td>
+                                                            <td class="text-right"><strong>-₹{{couponDeduction}}</strong></td>
+                                                        </tr>
+                                                        {{#if prepaidDiscount}}
+                                                        <tr>
+                                                            <td colspan="3"></td>
+                                                            <td class="text-right"><strong>Prepaid Discount</strong></td>
+                                                            <td class="text-right"><strong>-{{prepaidDiscount}}%</strong></td>
+                                                        </tr>
+                                                        {{/if}}
+                                                        <tr>
+                                                            <td colspan="3"></td>
+                                                            <td class="text-right"><strong>Grand Total</strong></td>
+                                                            <td class="text-right"><strong>{{grandTotal}}</strong></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>									
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 text-right identity">
+                                                <!-- <p>Designer identity<br><strong></strong></p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END INVOICE -->
+                        </div>
+        </div>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    margin-top:20px;
+    background:#eee;
+    font-family: 'Roboto', sans-serif;
+}
+
+.invoice {
+    padding: 30px;
+}
+
+.invoice h2 {
+	margin-top: 0px;
+	line-height: 0.8em;
+}
+
+.invoice .small {
+	font-weight: 300;
+}
+
+.invoice hr {
+	margin-top: 10px;
+	border-color: #ddd;
+}
+
+.invoice .table tr.line {
+	border-bottom: 1px solid #ccc;
+}
+
+.invoice .table td {
+	border: none;
+}
+
+.invoice .identity {
+	margin-top: 10px;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+.invoice .identity strong {
+	font-weight: 600;
+}
+
+
+.grid {
+    position: relative;
+	width: 100%;
+	background: #fff;
+	color: #666666;
+	border-radius: 2px;
+	margin-bottom: 25px;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+.row {
+    display: flex;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+div[class*="col"] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-xs-6 {
+    width: 50%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+table.table {
+    border: 1px solid #dfdfdf;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.table tr td {
+    border: 1px solid #dfdfdf;
+    padding: 11px 13px;
+}
+
+.col-md-12 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+.serviceWrp h4 {
+    font-size: 14px;
+    margin: 0 0 4px;
+}
+
+.serviceWrp h6 {
+    font-size: 13px;
+    margin: 0;
+    font-weight: normal;
+}
+table.table .bordTps td{
+    border-top:1px solid #dfdfdf;
+}
+</style>
+</body>
+
+</html>

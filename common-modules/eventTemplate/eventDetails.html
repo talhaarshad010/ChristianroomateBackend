@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Christian Roommates</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="myProjectPath/font-awesome/css/font-awesome.min.css"
+    />
+    <!-- <link type="text/css" rel="stylesheet" href="./assets/css/style.css" /> -->
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="upcharWRP">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="storyheadmaintextcon">
+              <h1>Ganesh Puja</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="upcharlinkwrp">
+              <div class="worksservicescon">
+                <div class="workpujaheadtext">
+                  <h2>Shodas Upchara Puja</h2>
+                </div>
+                <div class="worksserviceslinkcon upchar">
+                  <ul>
+                    {{#each features}}
+                    <li>
+                      <a href="">
+                        <div class="wroksparaimgcon upchar">
+                          <img
+                            class="img-fluid"
+                            src="{{this.image}}"
+                            alt="images"
+                          />
+                        </div>
+                        <div class="upcharimgparatext">{{this.text}}</div>
+                      </a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="upcharfolklorwrp">
+              <div class="workpujaheadtext">
+                <h2>Folklore</h2>
+              </div>
+              <div class="upcharfolklorparaconwrp">
+                <div class="upcharfolklorparacon">
+                  <p>{{folklore.description}}</p>
+                </div>
+                <div class="upcharfolklorimgcon">
+                  <div class="card border-0">
+                    <img
+                      class="img-fluid"
+                      src="{{folklore.image}}"
+                      alt="images"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="upcharfolklorwrp">
+                  <div class="workpujaheadtext">
+                    <h2>Preparatory Steps</h2>
+                  </div>
+                  <div class="upcharfolklorparaconwrp">
+                    <div class="upcharfolklorparacon upchar">
+                      <p>{{preparatory}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="upcharfolklorwrp">
+                  <div class="workpujaheadtext">
+                    <h2>Significance</h2>
+                  </div>
+                  <div class="upcharfolklorparaconwrp">
+                    <div class="upcharfolklorparacon upchar">
+                      <p>{{significance}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="upcharfolklorwrp">
+              <div class="workpujaheadtext">
+                <h2>Invocation</h2>
+              </div>
+              <div class="upcharfolklorparaconwrp">
+                <div class="upcharfolklorparacon">
+                  <p>{{invocation.description}}</p>
+                </div>
+                <div class="upcharfolklorimgcon">
+                  <div class="card border-0">
+                    <img
+                      class="img-fluid"
+                      src="{{invocation.image}}"
+                      alt="images"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="upcharfolklorwrp">
+              <div class="workpujaheadtext">
+                <h2>Trivia</h2>
+              </div>
+              <div class="upcharetrivatextparacon">
+                <p>{{trivia}}</p>
+              </div>
+            </div>
+
+            <div class="upchardisclaimertextcon">
+              <p><span> Disclaimer:</span> {{disclaimer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    .workpujaheadtext {
+      background: #1e2f59;
+      border: 1px solid #1e2f59;
+    }
+
+    .workpujaheadtext h2 {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 30px;
+      color: #fff;
+      margin: 0;
+      padding: 15px 20px;
+    }
+
+    .storyheadmaintextcon h1 {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 39px;
+      color: #000000;
+      padding: 25px 0px;
+      margin: 0;
+    }
+
+    .upcharWRP {
+      background: #e5e5e5;
+    }
+
+    .upcharlinkwrp {
+      background: #fff;
+      height: 100%;
+    }
+
+    .worksserviceslinkcon.upchar ul {
+      padding: 28px 20px;
+    }
+
+    .worksserviceslinkcon.upchar ul li a {
+      padding: 0;
+      border: none;
+      box-shadow: 0 0 0;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      margin-bottom: 50px;
+      color: #000000;
+    }
+
+    .wroksparaimgcon.upchar {
+      width: 65px;
+      height: 65px;
+    }
+
+    .wroksparaimgcon img {
+      height: 30px;
+    }
+
+    .worksserviceslinkcon ul li {
+      list-style: none;
+    }
+
+    .wroksparaimgcon {
+      width: 89px;
+      display: flex;
+      align-items: center;
+      border-radius: 50%;
+      justify-content: center;
+      height: 89px;
+      background: #ffffff;
+      margin-right: 25px;
+      box-shadow: 0px 5px 5px rgb(0 0 0 / 50%);
+      text-decoration: none !important;
+      position: relative;
+    }
+
+    .wroksparaimgcon.upchar::after {
+      height: 52px;
+    }
+
+    .worksserviceslinkcon.upchar
+      ul
+      li:nth-last-child(1)
+      .wroksparaimgcon::after {
+      content: none;
+    }
+
+    .wroksparaimgcon::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      background: #a5a0a0;
+      height: 52px;
+      top: 65px;
+    }
+
+    .wroksparaimgcon.active {
+      background-color: #1e2f59;
+    }
+
+    .upcharfolklorparaconwrp {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .upcharfolklorwrp {
+      background: #fff;
+      margin-bottom: 20px;
+    }
+
+    .upcharfolklorparacon p {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      color: #000000;
+      padding: 20px 35px 0px 20px;
+      max-width: 420px;
+    }
+
+    .upcharfolklorimgcon {
+      padding: 20px 60px;
+    }
+
+    .upcharfolklorimgcon .card {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .workpujaheadtextWRP {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .upcharfolklorparacon.upchar p {
+      min-height: 260px;
+    }
+
+    .upcharetrivatextparacon p {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      color: #000000;
+      padding: 20px;
+    }
+
+    .upchardisclaimertextcon {
+      background: #ffffff;
+      border: 1px solid #000000;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .upchardisclaimertextcon p {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 17px;
+      color: #000000;
+      margin: 0;
+      padding: 10px 0;
+    }
+  </style>
+</html>
